@@ -1,6 +1,16 @@
 # Teleinfo
 
-TODO: Write a gem description
+## English:
+It's a simple parser for "téléinfo", the data stream available on french electric meters since the 2000.
+Data are available as modulations (1200 bauds) on 2 wires directly on the meter. It provides plenty of
+interesting informations: meter identification, subscribed power, subscribed contract, immediate power
+ consumption, etc.
+Since this program concern a french only device, the other documentation will be redacted in french.
+
+## Français :
+Il s'agit d'un simple interpréteur de trames téléinfo EDF. Ce programme est testé sur un Raspberry Pi B.
+Il permet de déchiffrer chaque trame et en fournir une représentation simple à traiter.
+
 
 ## Installation
 
