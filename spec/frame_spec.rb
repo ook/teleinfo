@@ -31,6 +31,17 @@ describe Teleinfo::Frame do
 
   it 'should return valid Hash on #to_hash' do
     frame = Teleinfo::Frame.new(StringFrame)
-    expect(frame.to_hash).to eq([])
+    expect(frame.to_hash).to eq({
+                                  :adco=>"424242424242",
+                                  :optarif=>"HC",
+                                  :isousc=>30,
+                                  :hchc=>23995979,
+                                  :hchp=>38653523,
+                                  :ptec=>"HP",
+                                  :iinst=>8,
+                                  :imax=>41,
+                                  :papp=>1770,
+                                  :hhphc=>"D"
+                                 })
   end
 end

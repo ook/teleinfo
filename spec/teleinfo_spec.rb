@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Teleinfo do
+describe Teleinfo::Parser do
   RAW_TELEINFO_FILE = File.expand_path(File.dirname(__FILE__)) + '/raw/teleinfo_HCHP_anon'
   let(:raw_file) do
     File.new(RAW_TELEINFO_FILE.to_s)
@@ -23,7 +23,8 @@ describe Teleinfo do
     end
 
     it 'should return TeleinFo::Frame instances' do
-      raise 'pouet'
+      @parser.read_all
+      expect(@parser.frames.all? { |f| f.is_a?(Teleinfo::Frame) }).to be true
     end
 
     it 'should be able to tell how many frame are present' do
@@ -33,12 +34,12 @@ describe Teleinfo do
     it 'should keep in cache every frame read' do
       frame = @parser.next
       @parser.read_all
-      expect(@parser.frames[0]) == frame
+      expect(@parser.frames[0]) == frame # striclty the same object
     end
 
     it 'should give the "next" frame' do
       frame = @parser.next
-      expect(frame).to be_a(Array)
+      expect(frame).to be_a(Teleinfo::Frame)
     end
   end
 end
