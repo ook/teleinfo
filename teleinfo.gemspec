@@ -8,9 +8,9 @@ Gem::Specification.new do |spec|
   spec.version       = Teleinfo::VERSION
   spec.authors       = ["Thomas Lecavelier"]
   spec.email         = ["thomas@followanalytics.com"]
-  spec.summary       = %q{TODO: Write a short summary. Required.}
-  spec.description   = %q{TODO: Write a longer description. Optional.}
-  spec.homepage      = ""
+  spec.summary       = %q{Parse data from french electric meter Téléinfo (from EDF).}
+  spec.description   = %q{Parse data from french electric meter Téléinfo (from EDF). Deal with file or STDIN (anything responding to #readline, so NOT Pathname.)}
+  spec.homepage      = "https://github.com/ook/teleinfo"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files -z`.split("\x0")
@@ -21,4 +21,6 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "bundler", "~> 1.7"
   spec.add_development_dependency "rake", "~> 10.0"
   spec.add_development_dependency "rspec"
+  spec.add_development_dependency "rubocop"
+  spec.add_development_dependency "guard-rspec"
 end
