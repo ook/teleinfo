@@ -1,0 +1,4 @@
+#!/usr/bin/env ruby
+
+require 'teleinfo'
+puts Teleinfo::Parser.new(ARGF).next.to_json

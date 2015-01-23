@@ -1,6 +1,8 @@
 require 'teleinfo/version'
 require 'teleinfo/frame'
 
+require 'json'
+
 module Teleinfo
   class Parser
     def initialize(file)
