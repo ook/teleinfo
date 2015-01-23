@@ -1,4 +1,5 @@
 #!/usr/bin/env ruby
 
 require 'teleinfo'
-puts Teleinfo::Parser.new(ARGF).next.to_json
+
+Teleinfo::Parser.new(ARGF).each { |f| puts f.to_json }

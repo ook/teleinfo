@@ -50,6 +50,12 @@ module Teleinfo
       @frames.length
     end
 
+    def each
+      until (frame = self.next).nil?
+        yield frame if block_given?
+      end
+    end
+
     def frames
       @fully_parsed ? @frames : @frames.dup
     end
