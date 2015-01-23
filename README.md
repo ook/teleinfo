@@ -30,7 +30,12 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+You can use the binary embedded into the gem: teleinfo <file> (were file can be a regular file containing raw teleinfo datas or STDIN)
+
+On my side, I mounted on my Rasperry Pi a /dev/ttyAMA0 according the instructions from http://www.magdiblog.fr/gpio/teleinfo-edf-suivi-conso-de-votre-compteur-electrique/
+So I just run:
+
+    $ teleinfo /dev/ttyAMA0
 
 ## Contributing
 
