@@ -43,6 +43,8 @@ module Teleinfo
           @data[:imax] = $1.to_i
         when /^HHPHC (\S{1})/
           @data[:hhphc] = $1
+        when /^ADPS (\d{3})/
+          @data[:adps] = $1.to_i
         when /MOTDETAT/
           # always 00000…
         else
