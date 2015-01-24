@@ -2,4 +2,22 @@
 
 require 'teleinfo'
 
-Teleinfo::Parser.new(ARGF).each { |f| puts f.to_json }
+file = ARGF
+
+if file.nil?
+  puts %{
+  Téléinfo v#{Teleinfo::VERSION}
+
+  Usage: cat /dev/ttyAMA0 | teleinfo
+         teleinfo /dev/ttyAMA0
+         teleinfo raw_file
+
+        }
+  exit 1
+end
+teleinfo = Teleinfo::Parser.new(file)
+trap('SIGTERM', proc { teleinfo.stop! } )
+count = teleinfo.each { |f| puts f.to_json }
+puts
+puts "#{count} frames read."
+

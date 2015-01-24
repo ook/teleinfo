@@ -50,10 +50,18 @@ module Teleinfo
       @frames.length
     end
 
+    def stop!
+      @fully_parsed = true
+      self
+    end
+
     def each
-      until (frame = self.next).nil?
+      count = 0
+      until (frame = self.next).nil? || @fully_parsed
         yield frame if block_given?
+        count += 1
       end
+      count
     end
 
     def frames
