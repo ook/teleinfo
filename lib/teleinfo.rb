@@ -12,7 +12,7 @@ module Teleinfo
       @fully_parsed = false # indicate EOF readched
     end
 
-    def next(only_valid = true)
+    def next(only_valid: true, store_frame: false)
       begin
         frame = []
         until @line =~ /ADCO/
@@ -26,7 +26,7 @@ module Teleinfo
         end
         teleinfo_frame = Teleinfo::Frame.new(frame)
         if teleinfo_frame.errors.empty?
-          @frames << teleinfo_frame
+          @frames << teleinfo_frame if store_frame
         elsif only_valid && !@fully_parsed
           raise teleinfo_frame.errors.inspect
           teleinfo_frame = self.next(true)
@@ -34,7 +34,7 @@ module Teleinfo
         teleinfo_frame
       rescue EOFError => error
         @fully_parsed = true
-        @frames.freeze
+        @frames.freeze if store_frame
         nil
       end
     end
@@ -42,9 +42,9 @@ module Teleinfo
     # Warning: for STDIN, will wait for EOF
     def read_all
       unless @fully_parsed
-        last_frame = self.next(true)
+        last_frame = self.next(store_frame: true)
         until last_frame.nil? || @fully_parsed
-          self.next(true)
+          self.next(store_frame: true)
         end
       end
       @frames.length
