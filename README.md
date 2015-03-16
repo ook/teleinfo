@@ -1,5 +1,7 @@
 # Teleinfo
 
+[![Build Status](https://travis-ci.org/ook/teleinfo.svg?branch=master)](https://travis-ci.org/ook/teleinfo)
+
 ## English:
 It's a simple parser for "téléinfo", the data stream available on french electric meters since the 2000.
 Data are available as modulations (1200 bauds) on 2 wires directly on the meter. It provides plenty of
