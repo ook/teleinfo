@@ -39,6 +39,16 @@ So I just run:
 
     $ teleinfo /dev/ttyAMA0
 
+or 
+
+    $ cat /dev/ttyAMA0 | teleinfo
+
+You'll get on stdout a Hash representation like:
+
+    {"adco":"424242424242","optarif":"HC","isousc":30,"hchc":25036224,"hchp":40244232,"ptec":"HP","iinst":16,"imax":41,"papp":3580,"hhphc":"D"}
+
+Since I have only a counter with HPHC option, feel free to send me a dump of your counter if you want I handle your options set (please create an issue for it).
+
 ## Contributing
 
 1. Fork it ( https://github.com/ook/teleinfo/fork )
