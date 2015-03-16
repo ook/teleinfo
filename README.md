@@ -1,6 +1,7 @@
 # Teleinfo
 
 [![Build Status](https://travis-ci.org/ook/teleinfo.svg?branch=master)](https://travis-ci.org/ook/teleinfo)
+[![Gem Version](https://badge.fury.io/rb/teleinfo.svg)](http://badge.fury.io/rb/teleinfo)
 
 ## English:
 It's a simple parser for "téléinfo", the data stream available on french electric meters since the 2000.
