@@ -44,7 +44,7 @@ or
 
     $ cat /dev/ttyAMA0 | teleinfo
 
-You'll get on stdout a Hash representation like:
+You'll get on stdout a JSON representation like:
 
     {"adco":"424242424242","optarif":"HC","isousc":30,"hchc":25036224,"hchp":40244232,"ptec":"HP","iinst":16,"imax":41,"papp":3580,"hhphc":"D"}
 
