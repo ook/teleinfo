@@ -29,6 +29,8 @@ module Teleinfo
           @data[:optarif] = $1.sub(/\.+$/, '')
         when /^ISOUSC (\d{2}) ./
           @data[:isousc] = $1.to_i
+        when /^BASE (\d{9}) ./
+          @data[:base] = $1.to_i
         when /^HCHC (\d{9}) ./
           @data[:hchc] = $1.to_i
         when /^HCHP (\d{9}) ./
