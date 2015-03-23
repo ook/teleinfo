@@ -24,6 +24,25 @@ StringFrameBASE = [
                 'PAPP 01770 0',
              ]
 
+StringFrameTEMPO = [
+                'ADCO 424242424242 E',
+                'OPTARIF BBR( S',
+                'ISOUSC 90 ?',
+                'BBRHCJB 044659149 G',
+                'BBRHPJB 106861212 E',
+                'BBRHCJW 009486954 _',
+                'BBRHPJW 017712424 [',
+                'BBRHCJR 005468651 P',
+                'BBRHPJR 009396630 ^',
+                'PTEC HPJB P',
+                'DEMAIN ---- "',
+                'IINST 022 [',
+                'IMAX 041 D',
+                'PAPP 05240 ,',
+                'HHPHC Y D',
+                'MOTDETAT 000000 B'
+             ]
+
 describe Teleinfo::Frame do
   it 'should instanciate only with a non empty Array of String' do
     expect{ Teleinfo::Frame.new() }.to raise_error
@@ -69,6 +88,26 @@ describe Teleinfo::Frame do
                                   :iinst=>8,
                                   :imax=>41,
                                   :papp=>1770
+                                 })
+  end
+
+  it 'should return valid Hash on #to_hash for TEMPO' do
+    frame = Teleinfo::Frame.new(StringFrameTEMPO)
+    expect(frame.to_hash).to eq({
+                                  :adco=>"424242424242",
+                                  :bbrhcjb => 44659149,
+                                  :bbrhcjr => 5468651,
+                                  :bbrhcjw => 9486954,
+                                  :bbrhpjb => 106861212,
+                                  :bbrhpjr => "----",
+                                  :bbrhpjw => 17712424,
+                                  :hhphc=>"Y",
+                                  :optarif=>"BBR(",
+                                  :isousc=>90,
+                                  :ptec=>'HPJB',
+                                  :iinst=>22,
+                                  :imax=>41,
+                                  :papp=>5240
                                  })
   end
 end
