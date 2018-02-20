@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    teleinfo (0.0.4)
+    teleinfo (0.0.5)
 
 GEM
   remote: https://rubygems.org/
